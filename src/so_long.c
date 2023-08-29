@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/08/29 12:52:54 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:03:17 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char** av)
 
 	game = malloc(sizeof(t_game));
 	ft_parse_map(av[1], game);
-//	ft_printf("ici\n");
+	ft_printf("ici\n");
 	//ft_check_map
 	//ft_init_win
 	//ft_game
@@ -42,14 +42,14 @@ void	ft_parse_map(char *file, t_game *game)
 	while(1)
 	{
 		ret[i] = get_next_line(fd);
+		ft_printf("%s", ret[i]);
 		if (ret[i] == NULL)
 			break;
-		ft_printf("%s\n",ret[i]);
 		i++;
 	}
+	game->map = malloc(sizeof(char *) * 4);
+	game->map[0] = ft_strdup(ret[0]);
 	close(fd);
 	game->map_y = i;
-	game->map = malloc(sizeof(char *) * i);
-	game->map = ret;
 	ft_printf("la\n");
 }
