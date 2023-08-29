@@ -6,7 +6,7 @@
 /*   By: gvardaki <gvardaki@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:29:39 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/08/02 23:05:51 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/08/29 11:58:46 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
