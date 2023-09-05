@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/08/29 15:03:17 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:30:56 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char** av)
 {
 	t_game *game;
+	int i;
 
 	game = malloc(sizeof(t_game));
 	ft_parse_map(av[1], game);
@@ -22,7 +23,9 @@ int	main(int ac, char** av)
 	//ft_check_map
 	//ft_init_win
 	//ft_game
-	int i = 0;
+//	ft_printf("%s", game->map[0]);
+	i = 0;
+	ft_printf("%d\n", game->map_y);
 	while (i <= game->map_y)
 	{
 		ft_printf("%s\n", game->map[i]);
@@ -34,11 +37,10 @@ int	main(int ac, char** av)
 void	ft_parse_map(char *file, t_game *game)
 {
 	int	fd;
-	int i;
+	int i = 0;
 	char **ret;
 
 	fd = open(file, O_RDONLY);
-	i = 0;
 	while(1)
 	{
 		ret[i] = get_next_line(fd);
@@ -47,7 +49,7 @@ void	ft_parse_map(char *file, t_game *game)
 			break;
 		i++;
 	}
-	game->map = malloc(sizeof(char *) * 4);
+	game->map[0] = malloc(sizeof(char) * 4);
 	game->map[0] = ft_strdup(ret[0]);
 	close(fd);
 	game->map_y = i;
