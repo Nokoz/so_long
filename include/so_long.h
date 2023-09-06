@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/08/29 12:24:04 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:26:24 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,8 @@ typedef	struct	s_game
 }				t_game;
 
 void	ft_parse_map(char *file, t_game *game);
+char	*ft_append(char **s1, const char *s2);
+void	ft_free_full(t_game *game);
+void	ft_free_map(t_game *game);
+int		ft_valid_map(char *map);
 #endif

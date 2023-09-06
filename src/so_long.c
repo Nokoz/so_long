@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/05 17:30:56 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:26:36 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,40 @@ int	main(int ac, char** av)
 {
 	t_game *game;
 	int i;
+	(void)ac;
 
 	game = malloc(sizeof(t_game));
 	ft_parse_map(av[1], game);
-	ft_printf("ici\n");
 	//ft_check_map
 	//ft_init_win
 	//ft_game
-//	ft_printf("%s", game->map[0]);
 	i = 0;
-	ft_printf("%d\n", game->map_y);
-	while (i <= game->map_y)
+//	ft_printf("%d\n", game->map_y);
+	while (i < game->map_y)
 	{
 		ft_printf("%s\n", game->map[i]);
 		i++;	
 	}
+	ft_free_full(game);
 	return (0);
 }
 
-void	ft_parse_map(char *file, t_game *game)
+void	ft_free_full(t_game *game)
 {
-	int	fd;
-	int i = 0;
-	char **ret;
+	ft_free_map(game);
+	free(game);
+}
 
-	fd = open(file, O_RDONLY);
-	while(1)
+void	ft_free_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i <= game->map_y)
 	{
-		ret[i] = get_next_line(fd);
-		ft_printf("%s", ret[i]);
-		if (ret[i] == NULL)
-			break;
+		ft_printf("i = %d\n", i);
+		free(game->map[i]);
 		i++;
 	}
-	game->map[0] = malloc(sizeof(char) * 4);
-	game->map[0] = ft_strdup(ret[0]);
-	close(fd);
-	game->map_y = i;
-	ft_printf("la\n");
+	free(game->map);
 }
