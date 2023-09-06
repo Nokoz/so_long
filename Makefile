@@ -12,15 +12,14 @@ SRCS = $(addprefix $(SRC_DIR),\
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g3
-
+FLAGS = -Wall -Wextra -Werror -g3 
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(SRC_DIR)%.o)
 
 INCLUDE = -L $(LIBFT_PATH) -lft
 
 $(NAME) : $(OBJS)
 	make -C $(LIBFT_PATH)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
+	$(CC) $(FLAGS) -lmlx -framework OpenGL -framework Appkit $(OBJS) -o $(NAME) $(INCLUDE)
 
 $(OBJS): $(SRC_DIR)%.o : $(SRC_DIR)%.c
 	$(CC) $(FLAGS) -c $< -o $@
