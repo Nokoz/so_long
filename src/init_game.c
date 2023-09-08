@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:24:56 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/08 13:35:55 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:41:26 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ft_init_win(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
-	game->map.x = (int)ft_strlen(game->map.map[0]);
+	game->map.x = (int)ft_strlen(game->map.map[0]) - 1;
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map.x * W, game->map.y * H,
 			"so_long");
 }
