@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:55:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/08 11:57:19 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:12:11 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,11 @@ void	ft_free_map(t_game *game)
 		i++;
 	}
 	free(game->map.map);
+}
+
+int	ft_exit(t_game* g)
+{
+	ft_free_full(g);
+	exit(1);
+	return (0);
 }

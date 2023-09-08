@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/08 13:36:31 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:11:38 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int ac, char** av)
 	ft_test_img(game);
 	//ft_check_map
 	//ft_game
+	mlx_hook(game->win_ptr, 17, 0, ft_exit, game);
 	mlx_loop(game->mlx_ptr);
 	ft_free_full(game);
 	return (0);
 }
-
