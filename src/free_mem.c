@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   free_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/08 13:36:31 by gvardaki         ###   ########.fr       */
+/*   Created: 2023/09/08 11:55:55 by gvardaki          #+#    #+#             */
+/*   Updated: 2023/09/08 11:57:19 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../include/so_long.h"
 
-int	main(int ac, char** av)
+void	ft_free_full(t_game *game)
 {
-	t_game *game;
-	(void)ac;
-
-	game = malloc(sizeof(t_game));
-	ft_parse_map(av[1], game);
-	ft_init_win(game);
-	ft_load_image(game);
-	ft_test_img(game);
-	//ft_check_map
-	//ft_game
-	mlx_loop(game->mlx_ptr);
-	ft_free_full(game);
-	return (0);
+	ft_free_map(game);
+	free(game);
 }
 
+void	ft_free_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i <= game->map.y)
+	{
+		free(game->map.map[i]);
+		i++;
+	}
+	free(game->map.map);
+}
