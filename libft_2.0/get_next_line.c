@@ -6,12 +6,13 @@
 /*   By: gvardaki <gvardaki@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:15:30 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/08/02 23:10:17 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:56:15 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* free if !stack */
 char	*get_next_line(int fd)
 {
 	static char	*stake;
@@ -22,7 +23,6 @@ char	*get_next_line(int fd)
 	stake = ft_g_read(fd, stake);
 	if (!stake)
 	{
-//		free(stake);
 		return (NULL);
 	}
 	line = ft_g_line(stake);
@@ -30,6 +30,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
+/* free if read == -1 */
 char	*ft_g_read(int fd, char *stake)
 {
 	char	*buffer;
@@ -44,7 +45,6 @@ char	*ft_g_read(int fd, char *stake)
 		read_value = read(fd, buffer, BUFFER_SIZE);
 		if (read_value == -1)
 		{
-			//free(buffer);
 			return (NULL);
 		}
 		buffer[read_value] = '\0';

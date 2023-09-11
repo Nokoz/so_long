@@ -6,7 +6,7 @@
 /*   By: gvardaki <gvardaki@student.42.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 12:13:59 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/04/03 19:22:43 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:52:48 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,4 +20,4 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	}
 	return ((char *)s);
-}	
+}
