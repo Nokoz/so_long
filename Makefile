@@ -8,11 +8,15 @@ SRC_DIR = ./src/
 SRCS = $(addprefix $(SRC_DIR),\
 		so_long.c		\
 		init_map.c		\
-		so_long_utils.c)
+		so_long_utils.c	\
+		init_game.c		\
+		free_mem.c		\
+		validation.c	\
+		display.c)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -g3 
+FLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(SRC_DIR)%.o)
 
 INCLUDE = -L $(LIBFT_PATH) -lft

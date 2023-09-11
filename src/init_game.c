@@ -6,16 +6,46 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:24:56 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/08 15:41:26 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:52:23 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void ft_init_win(t_game *game)
+void	ft_init_var(t_game *g)
+{
+	g->direction = 2;
+	g->to_loot = ft_count_collectible(g);
+	ft_printf("to_loot = %d\n", g->to_loot);
+}
+
+int	ft_count_collectible(t_game* g)
+{
+	
+	int	i;
+	int	j;
+	int	ret;
+
+	i = 0;
+	ret = 0;
+	while (i < g->map.y)
+	{
+		j = 0;
+		while (j <= g->map.x)
+		{
+			if (g->map.map[i][j] == 'C')
+				ret++;
+			j++;
+		}
+		i++;
+	}
+	return (ret);
+}
+
+void	ft_init_win(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
-	game->map.x = (int)ft_strlen(game->map.map[0]) - 1;
+	game->map.x = (int)ft_strlen(game->map.map[0]);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map.x * W, game->map.y * H,
 			"so_long");
 }
@@ -39,18 +69,4 @@ t_sprite	ft_sprite(t_game *game, char *path)
 
 	sprite.ptr = mlx_xpm_file_to_image(game->mlx_ptr, path, &sprite.x, &sprite.y);
 	return (sprite);
-}
-
-void	ft_test_img(t_game *g)
-{
-	int i = 0;
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->player_up.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->player_right.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->player_down.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->player_left.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->floor.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->wall.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->collectible.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->exit.ptr, i++ * W, 0);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->exit_open.ptr, i++ * W, 0);
 }
