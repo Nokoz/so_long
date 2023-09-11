@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 15:03:05 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:19:08 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void		ft_parse_map(char *file, t_game *game);
 char		*ft_append(char **s1, const char *s2);
 void		ft_free_full(t_game *game);
 void		ft_free_map(t_game *game);
-int			ft_valid_map(char *map);
+void		ft_valid_map(t_game *game, char *map);
+void		ft_error_print(t_game *g, char *str, char *map);
 void		ft_init_win(t_game *game);
 void		ft_load_image(t_game *game);
 t_sprite	ft_sprite(t_game *game, char *path);
-void	ft_test_img(t_game *g);
 int			ft_exit(t_game* g);
 void		ft_display_map(t_game *g);
 void		ft_valid_arg(int ac, char **av);
