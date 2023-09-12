@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:21:53 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 17:21:17 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:12:49 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_parse_map(char *file, t_game *game)
 	free(temp_map);
 }
 
-//make void and imp fct error
 void	ft_valid_map(t_game *g, char *map)
 {
 	int	i;

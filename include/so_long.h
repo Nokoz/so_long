@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 17:57:41 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:35:53 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_game
 	t_sprite	exit;
 	t_sprite	exit_open;
 	int			*x;
+	int			player_x;
+	int			player_y;
 	int			direction;
 	int			to_loot;
 	t_map		map;
@@ -67,7 +69,7 @@ char		*ft_append(char **s1, const char *s2);
 void		ft_free_full(t_game *game);
 void		ft_free_map(t_game *game);
 void		ft_valid_map(t_game *game, char *map);
-void		ft_error_print(t_game *g, char *str, char *map);
+void		ft_error_print(t_game *game, char *str, char *map);
 void		ft_init_win(t_game *game);
 void		ft_load_image(t_game *game);
 t_sprite	ft_sprite(t_game *game, char *path);
@@ -78,4 +80,6 @@ void		ft_show_player(t_game *g, int i, int j);
 void		ft_init_var(t_game *g);
 void		ft_show_exit(t_game *g, int i, int j);
 int			ft_count_collectible(t_game *g);
+int			ft_handle_key(int key, t_game *g);
+void		ft_destroy_img(t_game *g);
 #endif

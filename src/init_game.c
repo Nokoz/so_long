@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:24:56 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 17:25:12 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 11:16:30 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_init_var(t_game *g)
 {
 	g->direction = 2;
 	g->to_loot = ft_count_collectible(g);
-	ft_printf("to_loot = %d\n", g->to_loot);
+//	ft_printf("to_loot = %d\n", g->to_loot);
 }
 
 int	ft_count_collectible(t_game *g)

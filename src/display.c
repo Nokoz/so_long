@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 17:27:14 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 12:10:19 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,35 @@ void	ft_show_player(t_game *g, int i, int j)
 	if (g->direction == 4)
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr,
 			g->player_left.ptr, j * W, i * H);
+	g->player_x = j;
+	g->player_y = i;
+}
+
+void	ft_display_map(t_game *g)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < g->map.y)
+	{
+		j = -1;
+		while (j++ <= g->map.x)
+		{
+			if (g->map.map[i][j] == '1')
+				mlx_put_image_to_window(g->mlx_ptr, g->win_ptr,
+					g->wall.ptr, j * W, i * H);
+			else if (g->map.map[i][j] == '0')
+				mlx_put_image_to_window(g->mlx_ptr, g->win_ptr,
+					g->floor.ptr, j * W, i * H);
+			else if (g->map.map[i][j] == 'C')
+				mlx_put_image_to_window(g->mlx_ptr, g->win_ptr,
+					g->collectible.ptr, j * W, i * H);
+			else if (g->map.map[i][j] == 'P')
+				ft_show_player(g, i, j);
+			else if (g->map.map[i][j] == 'E')
+				ft_show_exit(g, i, j);
+		}
+		i++;
+	}
 }
