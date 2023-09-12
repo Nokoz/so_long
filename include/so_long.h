@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/12 14:35:53 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:40:15 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define KEY_S		1
 # define KEY_D		2
 # define KEY_UP		126
-# define KEY_RIFGT	124
+# define KEY_RIGHT	124
 # define KEY_DOWN 	125
 # define KEY_LEFT	123
 # define KEY_ESC	53
@@ -82,4 +82,5 @@ void		ft_show_exit(t_game *g, int i, int j);
 int			ft_count_collectible(t_game *g);
 int			ft_handle_key(int key, t_game *g);
 void		ft_destroy_img(t_game *g);
+void		ft_move_player(t_game *g, int dir);
 #endif
