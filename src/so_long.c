@@ -6,13 +6,13 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/11 16:57:05 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 08:58:54 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+//ft_printf("ici\n");
 
-	//ft_printf("ici\n");
 int	main(int ac, char **av)
 {
 	t_game	*game;
