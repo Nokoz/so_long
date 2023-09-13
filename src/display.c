@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:31:21 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/12 12:10:19 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:27:40 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_show_player(t_game *g, int i, int j)
 			g->player_left.ptr, j * W, i * H);
 	g->player_x = j;
 	g->player_y = i;
+	ft_printf("Moves = %d\n", g->moves);
 }
 
 void	ft_display_map(t_game *g)

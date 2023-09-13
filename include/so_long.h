@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/12 17:40:15 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:27:42 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_game
 	int			player_y;
 	int			direction;
 	int			to_loot;
+	int			moves;
 	t_map		map;
 }				t_game;
 
@@ -83,4 +84,6 @@ int			ft_count_collectible(t_game *g);
 int			ft_handle_key(int key, t_game *g);
 void		ft_destroy_img(t_game *g);
 void		ft_move_player(t_game *g, int dir);
+int			ft_valid_move(t_game *g, int dir);
+int			ft_move_to_object(t_game *g, int y, int x);
 #endif
