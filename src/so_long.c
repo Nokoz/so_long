@@ -6,12 +6,13 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:06:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 12:44:50 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:17:30 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+	//ft_printf("ici\n");
 int	main(int ac, char **av)
 {
 	t_game	*game;
@@ -19,8 +20,8 @@ int	main(int ac, char **av)
 	ft_valid_arg(ac, av);
 	game = malloc(sizeof(t_game));
 	ft_parse_map(av[1], game);
-	ft_init_win(game);
 	ft_init_var(game);
+	ft_init_win(game);
 	ft_load_image(game);
 	ft_display_map(game);
 	//ft_check_map

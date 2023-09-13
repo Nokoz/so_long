@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:24:56 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 12:45:07 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:18:16 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void	ft_init_var(t_game *g)
 {
 	g->direction = 2;
 	g->moves = 0;
-	g->to_loot = ft_count_collectible(g);
+	g->to_loot = ft_count_obj(g, 'C');
+	if (g->to_loot == 0)
+		ft_error_print(g, "At lest one item (C) needed", NULL);
 }
 
-int	ft_count_collectible(t_game *g)
+int	ft_count_obj(t_game *g, char c)
 {
 	int	i;
 	int	j;
@@ -32,7 +34,7 @@ int	ft_count_collectible(t_game *g)
 		j = 0;
 		while (j <= g->map.x)
 		{
-			if (g->map.map[i][j] == 'C')
+			if (g->map.map[i][j] == c)
 				ret++;
 			j++;
 		}
@@ -68,5 +70,10 @@ t_sprite	ft_sprite(t_game *game, char *path)
 
 	sprite.ptr = mlx_xpm_file_to_image(game->mlx_ptr,
 			path, &sprite.x, &sprite.y);
+	if (!sprite.ptr)
+	{
+		ft_printf("Error\n Enable to load iamge\n");
+		ft_exit(game);
+	}
 	return (sprite);
 }

@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:21:53 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/12 11:12:49 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:18:32 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_parse_map(char *file, t_game *game)
 	}
 	close(fd);
 	game->map.map = ft_split(temp_map, '\n');
+	game->map.x = (int)ft_strlen(game->map.map[0]);
 	ft_valid_map(game, temp_map);
 	free(temp_map);
 }
@@ -51,4 +52,29 @@ void	ft_valid_map(t_game *g, char *map)
 			ft_error_print(g, "Empty line in the middle of the map", map);
 		i++;
 	}
+	ft_check_map(g, map);
+}
+
+void	ft_check_map(t_game * g, char *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < g->map.x - 1)
+	{
+		if (g->map.map[0][i] != '1' || g->map.map[g->map.y - 1][i] != '1')
+			ft_error_print(g, "Map must by surronded by walls", map);
+		i++;
+	}
+	i = 0;
+	while (i < g->map.y - 1)
+	{
+		if (g->map.map[i][0] != '1' || g->map.map[i][g->map.x - 1] != '1')
+			ft_error_print(g, "Map must by surronded by walls", map);
+		i++;
+	}
+	if (ft_count_obj(g, 'P') != 1)
+		ft_error_print(g, "Only one player(P) allowed", map);
+	if (ft_count_obj(g, 'E') != 1)
+		ft_error_print(g, "Only one exit(E) allowed", map);
 }

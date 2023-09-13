@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:55:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/12 14:38:40 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:37:50 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_print(t_game *g, char *str, char *map)
 {
-	ft_printf("%s\n", str);
+	ft_printf("Error\n%s\n", str);
 	ft_free_map(g);
 	free(g);
 	free(map);
