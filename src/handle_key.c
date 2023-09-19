@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:37:58 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 12:27:43 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:16:02 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,12 @@ int	ft_move_to_object(t_game *g, int y, int x)
 	else if (g->map.map[y][x] == 'E' && g->to_loot != 0)
 		return (1);
 	else if (g->map.map[y][x] == 'E' && g->to_loot == 0)
-	{
-		ft_printf("GG\n");
-		return (0);
-	}
+		ft_win_game(g);
 	return (0);
+}
+void	ft_win_game(t_game *g)
+{
+	ft_printf("***\n Congratulations, you won in %d moves!\n***\n",
+			g->moves + 1);
+	ft_exit(g);
 }

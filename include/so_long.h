@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 16:44:55 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:07:58 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void		ft_move_player(t_game *g, int dir);
 int			ft_valid_move(t_game *g, int dir);
 int			ft_move_to_object(t_game *g, int y, int x);
 void		ft_check_map(t_game * g, char *map);
+void		ft_win_game(t_game *g);
 #endif
