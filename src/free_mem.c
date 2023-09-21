@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:55:55 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/19 12:14:15 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:39:34 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error_print(t_game *g, char *str, char *map)
 {
 	ft_printf("Error\n%s\n", str);
-	ft_free_map(g);
+	ft_free_map(g->map.map);
 	free(g);
 	free(map);
 	exit(2);
@@ -23,7 +23,7 @@ void	ft_error_print(t_game *g, char *str, char *map)
 
 void	ft_free_full(t_game *game)
 {
-	ft_free_map(game);
+	ft_free_map(game->map.map);
 	ft_destroy_img(game);
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
@@ -31,17 +31,22 @@ void	ft_free_full(t_game *game)
 	free(game);
 }
 
-void	ft_free_map(t_game *game)
+void	ft_free_map(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (game->map.map[i])
+	if (!map)
+		return ;
+	while (map[i])
 	{
-		free(game->map.map[i]);
+		free(map[i]);
+		map[i] = NULL;
 		i++;
 	}
-	free(game->map.map);
+	if (i > 0)
+		free(map);
+	map = NULL;
 }
 
 int	ft_exit(t_game *g)

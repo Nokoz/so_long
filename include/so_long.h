@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/21 10:45:28 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:41:31 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct s_game
 void		ft_parse_map(char *file, t_game *game);
 char		*ft_append(char **s1, const char *s2);
 void		ft_free_full(t_game *game);
-void		ft_free_map(t_game *game);
+void		ft_free_map(char **map);
 void		ft_valid_map(t_game *game, char *map);
 void		ft_error_print(t_game *game, char *str, char *map);
 void		ft_init_win(t_game *game);
@@ -92,4 +92,5 @@ void		ft_win_game(t_game *g);
 void		ft_flag_exit(t_game * g);
 void		ft_check_path(t_game *g);
 char		**ft_dup_map(t_game *g);
+int			ft_find_path(t_game *g, int x, int y, char ** map);
 #endif
