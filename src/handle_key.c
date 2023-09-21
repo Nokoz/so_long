@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:37:58 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/19 12:16:02 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:34:25 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_move_player(t_game *g, int dir)
 		g->map.map[g->player_y][g->player_x] = '0';
 		g->map.map[g->player_y][g->player_x - 1] = 'P';
 	}
+	ft_flag_exit(g);
 	g->moves++;
 	ft_display_map(g);
 }
@@ -101,7 +102,10 @@ int	ft_move_to_object(t_game *g, int y, int x)
 		return (0);
 	}
 	else if (g->map.map[y][x] == 'E' && g->to_loot != 0)
-		return (1);
+	{
+		g->flag = 2;
+		return (0);
+	}
 	else if (g->map.map[y][x] == 'E' && g->to_loot == 0)
 		ft_win_game(g);
 	return (0);

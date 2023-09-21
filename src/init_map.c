@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:21:53 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 17:18:32 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:43:52 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,22 @@ void	ft_check_map(t_game * g, char *map)
 		ft_error_print(g, "Only one player(P) allowed", map);
 	if (ft_count_obj(g, 'E') != 1)
 		ft_error_print(g, "Only one exit(E) allowed", map);
+}
+
+void	ft_check_path(t_game *g)
+{
+	char **map;
+
+	map = ft_dup_map(g);
+}
+
+char	**ft_dup_map(t_game *g)
+{
+	char **dup;
+
+	dup = malloc(sizeof (g->map.map));
+	if (!dup)
+		return(0);
+
+	return(NULL);
 }

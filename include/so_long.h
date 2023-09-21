@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 10:43:06 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/19 12:07:58 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:45:28 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_game
 	int			direction;
 	int			to_loot;
 	int			moves;
+	int			flag;
 	t_map		map;
 }				t_game;
 
@@ -88,4 +89,7 @@ int			ft_valid_move(t_game *g, int dir);
 int			ft_move_to_object(t_game *g, int y, int x);
 void		ft_check_map(t_game * g, char *map);
 void		ft_win_game(t_game *g);
+void		ft_flag_exit(t_game * g);
+void		ft_check_path(t_game *g);
+char		**ft_dup_map(t_game *g);
 #endif

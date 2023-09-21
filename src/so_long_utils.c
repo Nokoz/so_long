@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:20:14 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/06 12:53:13 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:34:22 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,11 @@ char	*ft_append(char **s1, const char *s2)
 	ft_strlcat(str, s2, ft_strlen(*s1) + ft_strlen(s2) + 1);
 	free(*s1);
 	return (str);
+}
+
+void	ft_flag_exit(t_game * g)
+{
+	if (g->flag == 1)
+		g->map.map[g->player_y][g->player_x] = 'E';
+	--g->flag;
 }

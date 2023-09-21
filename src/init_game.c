@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:24:56 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/13 17:18:16 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:18:57 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_init_var(t_game *g)
 {
 	g->direction = 2;
 	g->moves = 0;
+	g->flag = 0;
 	g->to_loot = ft_count_obj(g, 'C');
 	if (g->to_loot == 0)
 		ft_error_print(g, "At lest one item (C) needed", NULL);
