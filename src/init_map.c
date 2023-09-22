@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:21:53 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/21 15:44:56 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:27:23 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_valid_map(t_game *g, char *map)
 	ft_check_map(g, map);
 }
 
-void	ft_check_map(t_game * g, char *map)
+void	ft_check_map(t_game *g, char *map)
 {
 	int	i;
 
@@ -81,23 +81,32 @@ void	ft_check_map(t_game * g, char *map)
 
 void	ft_check_path(t_game *g)
 {
-	char **map;
+	char	**map;
 
 	map = ft_dup_map(g);
-	if (!ft_find_path(g, g->player_x, g->player_y, map))
+	if (!ft_find_path(g->to_loot, g->player_x, g->player_y, map))
 	{
 		ft_free_map(map);
 		ft_error_print(g, "Map is impossible to win", NULL);
 	}
-	ft_printf("ici\n");
 	ft_free_map(map);
 }
 
-int	ft_find_path(t_game *g, int x, int y, char **map)
+bool	ft_find_path(int to_loot, int x, int y, char **map)
 {
-	(void)g;
-	(void)x;
-	(void)y;
-	(void)map;
-	return (0);
+	static int	coins = 0;
+	static bool	exit = false;
+
+	if (map[y][x] == '1')
+		return (false);
+	else if (map[y][x] == 'C')
+		coins += 1;
+	else if (map[y][x] == 'E')
+		exit = true;
+	map[y][x] = '1';
+	ft_find_path(to_loot, x + 1, y, map);
+	ft_find_path(to_loot, x - 1, y, map);
+	ft_find_path(to_loot, x, y + 1, map);
+	ft_find_path(to_loot, x, y - 1, map);
+	return (coins == to_loot && exit);
 }

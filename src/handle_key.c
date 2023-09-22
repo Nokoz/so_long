@@ -6,7 +6,7 @@
 /*   By: gvardaki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:37:58 by gvardaki          #+#    #+#             */
-/*   Updated: 2023/09/21 09:34:25 by gvardaki         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:26:49 by gvardaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,10 @@ int	ft_move_to_object(t_game *g, int y, int x)
 		ft_win_game(g);
 	return (0);
 }
+
 void	ft_win_game(t_game *g)
 {
 	ft_printf("***\n Congratulations, you won in %d moves!\n***\n",
-			g->moves + 1);
+		g->moves + 1);
 	ft_exit(g);
 }
